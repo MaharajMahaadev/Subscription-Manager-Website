@@ -1,6 +1,5 @@
 import React, { createContext, useContext,  useState } from 'react';
 import type { AuthContextType } from '../data/types';
-import { supabase } from '../utils/supabase';
 import toast from 'react-hot-toast';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -81,8 +80,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const signOut = async () => {
     try {
       setLoading(true);
-      const { error } = await supabase.auth.signOut();
-      if (error) throw error;
       setUser(null);
       toast.success('Signed out successfully!');
     } catch (error: any) {
