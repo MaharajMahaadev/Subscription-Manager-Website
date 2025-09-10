@@ -17,7 +17,7 @@ export const SharedSubscriptions: React.FC = () => {
 
   const fetchSharedSubscriptions = async () => {
     try {
-      const res = await fetch('http://localhost:5000/subscriptions/shared', {
+      const res = await fetch('https://subscription-manager-website.onrender.com/subscriptions/shared', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

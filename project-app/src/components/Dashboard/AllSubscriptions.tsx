@@ -20,7 +20,7 @@ export const AllSubscriptions: React.FC = () => {
 
   const fetchAllSubscriptions = async () => {
     try {
-      const res = await fetch('http://localhost:5000/subscriptions', {
+      const res = await fetch('https://subscription-manager-website.onrender.com/subscriptions', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ export const AllSubscriptions: React.FC = () => {
     if (!confirm('Are you sure you want to delete this subscription?')) return;
 
     try {
-      const res = await fetch('http://localhost:5000/subscriptions', {
+       await fetch('https://subscription-manager-website.onrender.com/subscriptions', {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
@@ -52,9 +52,6 @@ export const AllSubscriptions: React.FC = () => {
             id: id
           })
         });
-
-        const data = await res.json();
-        console.log(data);
         
       toast.success('Subscription deleted successfully!');
       fetchAllSubscriptions();
@@ -74,7 +71,7 @@ export const AllSubscriptions: React.FC = () => {
     console.log("Works?")
     
     try {
-      await fetch('http://localhost:5000/subscriptions/visibility', {
+      await fetch('https://subscription-manager-website.onrender.com/subscriptions/visibility', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -98,7 +95,7 @@ export const AllSubscriptions: React.FC = () => {
     try {
       if (editingSubscription) {
         formData['id']=editingSubscription.id;
-        const res = await fetch('http://localhost:5000/subscriptions', {
+        await fetch('https://subscription-manager-website.onrender.com/subscriptions', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -108,14 +105,11 @@ export const AllSubscriptions: React.FC = () => {
             formdata: formData
           })
         });
-
-        const data = await res.json();
-        console.log(data);
       
         toast.success('Subscription updated successfully!');
       } else {
 
-        const res = await fetch('http://localhost:5000/subscriptions', {
+        await fetch('https://subscription-manager-website.onrender.com/subscriptions', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -125,9 +119,6 @@ export const AllSubscriptions: React.FC = () => {
             formdata: formData
           })
         });
-
-        const data = await res.json();
-        console.log(data);
         
         toast.success('Subscription added successfully!');
       }

@@ -21,7 +21,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       setLoading(true);
 
-      const res = await fetch('http://localhost:5000/login', {
+      const res = await fetch('https://subscription-manager-website.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

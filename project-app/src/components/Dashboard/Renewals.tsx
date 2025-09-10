@@ -20,7 +20,7 @@ export const Renewals: React.FC = () => {
     if (!user) return;
 
     try {
-      const res = await fetch('http://localhost:5000/subscriptions', {
+      const res = await fetch('https://subscription-manager-website.onrender.com/subscriptions', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

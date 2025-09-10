@@ -25,7 +25,7 @@ export const Insights: React.FC<InsightsProps> = ({ isGlobal = false }) => {
     if (!user) return;
 
     try {
-      const res = await fetch('http://localhost:5000/subscriptions', {
+      const res = await fetch('https://subscription-manager-website.onrender.com/subscriptions', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ export const Insights: React.FC<InsightsProps> = ({ isGlobal = false }) => {
       val += state.id + " ," + state.service_name + ", " + state.cost.toString() + ", " + state.billing_cycle + ". ";
     });
 
-    const res = await fetch('http://localhost:5000/ai', {
+    const res = await fetch('https://subscription-manager-website.onrender.com/ai', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

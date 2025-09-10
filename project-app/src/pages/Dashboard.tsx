@@ -19,7 +19,7 @@ export const Dashboard: React.FC = () => {
 
   async function setRole(){
     try{
-      const res = await fetch('http://localhost:5000/checkrole', {
+      const res = await fetch('https://subscription-manager-website.onrender.com/checkrole', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

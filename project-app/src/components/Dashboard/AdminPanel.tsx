@@ -37,7 +37,7 @@ export const AdminPanel: React.FC = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch('http://localhost:5000/users', {
+      const res = await fetch('https://subscription-manager-website.onrender.com/users', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ export const AdminPanel: React.FC = () => {
   const onSubmit = async (data: UserFormData) => {
     setCreating(true);
     try {
-      const res = await fetch('http://localhost:5000/signup', {
+      await fetch('https://subscription-manager-website.onrender.com/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -70,8 +70,6 @@ export const AdminPanel: React.FC = () => {
           })
         });
 
-      const resdata = await res.json();
-      console.log(resdata);
       toast.success('User created successfully!');
       reset();
       fetchUsers();

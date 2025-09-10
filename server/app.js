@@ -183,7 +183,7 @@ app.post('/subscriptions', validateToken, async(req, res) =>{
             `INSERT INTO subscriptions 
             (service_name, cost, billing_cycle, renewal_date, notes, email, visibility)
             VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-            [service_name, cost, billing_cycle, renewal_date, 'HI', req.user.email, visibility]
+            [service_name, cost, billing_cycle, renewal_date, notes, req.user.email, visibility]
         );
         res.send('Successfully Created!');
     }
